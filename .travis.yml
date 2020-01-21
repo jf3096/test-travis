@@ -15,14 +15,6 @@ script:
 
 jobs:
   include:
-    - stage: test
-      script:
-        - node --version
-        - npm --version
-        - echo "Testing Started ..."
-        - npm test
-        - echo "Testing Finished."
-
     - stage: deploy
       script:
         - echo "NPM Deploying Started ..."
