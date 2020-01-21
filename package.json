@@ -1,5 +1,5 @@
 {
-  "name": "test-travis",
+  "name": "test1-travis",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,11 @@
     "url": "git+https://github.com/jf3096/test-travis.git"
   },
   "keywords": [],
+  "files": [
+    "lib"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jf3096/test-travis/issues"
   },

@@ -1,7 +1,6 @@
 language : node_js
 
 node_js:
-  - "10"
   - "9"
 
 install: yarn
@@ -13,3 +12,28 @@ git:
 
 script:
   - yarn start
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - node --version
+        - npm --version
+        - echo "Testing Started ..."
+        - npm test
+        - echo "Testing Finished."
+
+    - stage: deploy
+      script:
+        - echo "NPM Deploying Started ..."
+        - npm version
+        - npm run build
+        - echo "NPM Building Finished."
+
+      deploy:
+        provider: npm
+        email: 529360897@qq.com
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true
+        on:
+          all_branches: true
