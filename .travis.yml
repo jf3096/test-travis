@@ -14,6 +14,14 @@ cache: yarn
 git:
   depth: 1
 
+before_install:
+  - |
+    if [[ $TRAVIS_COMMIT_MESSAGE !~ "release:"* ]]
+    then
+      echo "Not running CI since only docs were changed."
+      exit
+    fi
+
 script:
   - yarn start
 
