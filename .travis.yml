@@ -16,7 +16,7 @@ git:
 
 before_install:
   - |
-    if [[ $TRAVIS_COMMIT_MESSAGE !~ "release:"* ]]
+    if [[ $TRAVIS_COMMIT_MESSAGE == "release:"* ]]
     then
       echo "Not running CI since only docs were changed."
       exit
