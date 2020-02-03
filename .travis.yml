@@ -18,7 +18,7 @@ before_install:
   - |
     if [[ $TRAVIS_COMMIT_MESSAGE != "release:"* ]]
     then
-      echo "Not running CI since only docs were changed."
+      echo "commit message 中没有使用 ‘release:’ 开头故终止当前 CI."
       exit
     fi
 
@@ -37,7 +37,9 @@ jobs:
   include:
     - stage: deploy
       script:
-        - if [[ $TRAVIS_COMMIT_MESSAGE == "release:"* ]]; then echo "开始执行部署 ..." ; npm run build ; echo "部署完成" ; fi ;
+        - echo "开始执行部署 ..."
+        - npm run build
+        - echo "部署完成"
       deploy:
         provider: npm
         email: "529360897@qq.com"
@@ -45,5 +47,4 @@ jobs:
         skip_cleanup: true
         on:
           all_branches: true
-          condition: $TRAVIS_COMMIT_MESSAGE == "release:"*
         edge: true
