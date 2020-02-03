@@ -29,10 +29,10 @@ jobs:
   include:
     - stage: deploy
       script:
+        - if [[ $TRAVIS_COMMIT_MESSAGE == "release:"* ]]; then
         - echo "开始执行部署 ..."
         - npm run build
         - echo "部署完成"
-
       deploy:
         provider: npm
         email: "529360897@qq.com"
