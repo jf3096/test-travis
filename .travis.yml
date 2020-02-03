@@ -25,6 +25,7 @@ jobs:
         - npx npm-version-process
         - echo "开始执行部署 ..."
         - npm run build
+        - npm publish
         - echo "部署完成"
 
       deploy:
