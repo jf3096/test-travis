@@ -14,9 +14,12 @@ script:
   - yarn start
 
 branches:
+  only:
+    - gh-pages
+    - /.*/
   except:
-    - master
-    - /^test-.*$/
+  #    - master
+  - /^test-.*$/
 
 jobs:
   include:
