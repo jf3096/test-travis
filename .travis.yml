@@ -27,8 +27,8 @@ jobs:
       script:
         - npx npm-version-process
         - echo "开始执行部署 ..."
-        - yarn run build
-        - yarn publish
+        - npm run build
+        - npm publish
         - echo "部署完成"
 
       deploy:
